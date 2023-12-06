@@ -1,0 +1,27 @@
+<div class="mt-8 p-6 bg-white rounded-lg shadow-md" [formGroup]="formu">
+  <h2 class="text-3xl font-bold mb-6 text-indigo-600">Materias y Calificaciones</h2>
+
+  <div *ngFor="let materia of materias" class="mb-6 border-b pb-4">
+    <h3 class="text-2xl font-bold mb-2 text-teal-500">{{ materia.nombre }}</h3>
+
+    <ul>
+      <li class="mb-2">
+        <div class="flex items-center">
+          <span class="text-gray-700 w-1/4">Unidad 1:</span>
+          <input [class.border-red-500]="formu.get('calificacion_1')?.invalid" formControlName="calificacion_1" class="text-indigo-600 font-bold w-1/4 border-b-2 border-indigo-600" />
+        
+          <span class="text-gray-700 w-1/4">Unidad 2:</span>
+          <input [class.border-red-500]="formu.get('calificacion_2')?.invalid" formControlName="calificacion_2" class="text-indigo-600 font-bold w-1/4 border-b-2 border-indigo-600" />
+        
+          <span class="text-gray-700 w-1/4">Unidad 3:</span>
+          <input [class.border-red-500]="formu.get('calificacion_3')?.invalid" formControlName="calificacion_3" class="text-indigo-600 font-bold w-1/4 border-b-2 border-indigo-600" />
+        </div>
+      </li>
+    </ul>
+
+    <!-- Agrega el botón para insertar calificaciones -->
+    <button (click)="insertarCalificaciones()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
+      Insertar Calificaciones
+    </button>
+  </div>
+</div>

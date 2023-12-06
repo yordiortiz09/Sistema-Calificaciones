@@ -1,0 +1,12 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <!-- Iterar sobre los grupos y mostrar cada uno -->
+  <div *ngFor="let grupo of grupos" class="bg-white p-4 rounded shadow-md cursor-pointer" (click)="irAMateria(grupo.id)">
+    <h2 class="text-lg font-bold mb-2">{{ grupo.grado }} - {{ grupo.seccion }}</h2>
+    <p>Descripción del {{ grupo.grado }} - Sección {{ grupo.seccion }}.</p>
+  </div>
+</div>
+
+<div id="detalle" class="hidden mt-4 p-4 bg-white rounded shadow-md">
+  <h2 id="detalle-titulo" class="text-lg font-bold mb-2"></h2>
+  <p id="detalle-descripcion"></p>
+</div>
