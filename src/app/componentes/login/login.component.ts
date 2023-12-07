@@ -41,6 +41,7 @@ export class LoginComponent {
 
       localStorage.setItem('token', response.token);
       localStorage.setItem('id', response.user.id);
+      localStorage.setItem('rol_id', response.user.rol_id);
 
       if (response.user.rol_id === 1) {
         this.sharedService.setId(response.user.rol_id);

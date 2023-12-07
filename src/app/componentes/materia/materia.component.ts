@@ -21,6 +21,7 @@ export class MateriaComponent {
   materias: Materia[] = [];
   calificaciones: Calificacion[] = [];
   id = Number(localStorage.getItem('id'));
+  rolId = Number(localStorage.getItem('rol_id'));
 
 
   constructor(private materiaService: MateriaService, private caliService: CalificacionesService, private fb: FormBuilder, private http: HttpClient,
@@ -54,7 +55,7 @@ export class MateriaComponent {
   }
 
   ngOnInit(): void {
-    this.materiaService.obtenerMateria(this.id).subscribe((response: any) => {
+    this.materiaService.obtenerMaterias().subscribe((response: any) => {
       this.materias = response.data;
       console.log(this.materias);
       console.log(response);
@@ -81,6 +82,10 @@ export class MateriaComponent {
         console.log(error);
       }
     );
+    if (this.rolId === 2) {
+      this.formu.disable();
+    }
+
 
   }
   insertarCalificaciones() {
@@ -110,6 +115,9 @@ export class MateriaComponent {
         console.log(error);
       }
     );
+
+
+
 
 
 
